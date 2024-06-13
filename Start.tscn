@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Minecraftia-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/start.png" type="Texture" id=2]
+[ext_resource path="res://Start.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 1 )
+
+[node name="Start" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -2391.0
+margin_top = -2780.0
+margin_right = 2104.0
+margin_bottom = 1596.0
+color = Color( 0.0901961, 0.0784314, 0.109804, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 0.5, 0.5 )
+transform = Transform2D( 0.5, 0, 0, 0.5, 0, 0 )
+
+[node name="Time" type="Label" parent="CanvasLayer"]
+margin_left = 2.0
+margin_top = 10.0
+margin_right = 214.0
+margin_bottom = 122.0
+custom_colors/font_color = Color( 0.698039, 0.631373, 0.733333, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Rules:
+You're stuck in a loop. When 60 seconds
+passes you will come back to the start
+position. The cycle repeats until you
+escape from the time-loop. Find the key that
+unlocks the door near the start point to
+escape the time-cycle loop"
+valign = 1
+
+[node name="Time2" type="Label" parent="CanvasLayer"]
+margin_left = 118.0
+margin_top = -10.0
+margin_right = 318.0
+margin_bottom = 102.0
+custom_colors/font_color = Color( 0.698039, 0.631373, 0.733333, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Controls:
+Right arrow - Move right
+Left arrow - Move left
+Spacebar - Jump"
+align = 2
+valign = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer2"]
+margin_left = 64.0
+margin_top = 65.0
+margin_right = 104.0
+margin_bottom = 75.0
+texture_normal = ExtResource( 2 )
+
+[node name="Time" type="Label" parent="CanvasLayer2"]
+margin_left = 78.0
+margin_top = 63.0
+margin_right = 104.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0.698039, 0.631373, 0.733333, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+valign = 1
+
+[connection signal="pressed" from="CanvasLayer2/TextureButton" to="." method="_on_TextureButton_pressed"]
